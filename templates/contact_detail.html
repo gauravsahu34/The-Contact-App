@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<h2 style="text-align:center">Contact Profile</h2>
+<br>
+<br>
+<br>
+<div class="card">
+  <img src="{% static "user_profile_default.png" %}" style="width:100%">
+  <h1>{{contact.Name.first_name}} {{contact.Name.last_name}}</h1>
+  <p class="title">{{contact.age}} Years old</p>
+  <p>{{contact.Phone_number}}</p>
+  <p><a href="{% url 'contacts:send_message' id=contact.id %}"><button>Send Message</button></a> </p>
+</div>
+{% endblock %}

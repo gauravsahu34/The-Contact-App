@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Contacts</h2>
+<table class="table table-condensed"  style="width:100%;padding:15px">
+    <thead>
+        <tr>
+            <th style="text-align:center;">First Name</th>
+            <th>Last Name</th>
+            <th style="width:20%;">Go to detail</th>
+        </tr>
+        <br>
+        <br>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td style="text-align:center;">{{contact.Name.first_name}}</td>
+            <td>{{contact.Name.last_name}}</td>
+            <td><a class="btn btn-info" href="{% url "contacts:contact_detail" id=contact.id %}">Detail</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
