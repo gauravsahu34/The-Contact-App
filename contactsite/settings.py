@@ -17,9 +17,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Twilio app authentication constants
-TWILIO_ACCOUNT_SID = 'AC7b6d631df2311afd6b27b4be86d7add6'
-TWILIO_AUTH_TOKEN = 'a1d694cc786751d26d7e5bfd54aa3509'
-TWILIO_PHONE_NUMBER= '+12563975690'
+TWILIO_ACCOUNT_SID = #####Place your Twilio account sid
+TWILIO_AUTH_TOKEN = #####Place your auth Token
+TWILIO_PHONE_NUMBER= ####Place your phone number
 
 
 # Quick-start development settings - unsuitable for production
@@ -129,3 +129,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
