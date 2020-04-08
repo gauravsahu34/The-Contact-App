@@ -86,7 +86,7 @@ def send(id, otp):
             message = client.messages \
                 .create(
                      body=text_message + " " + str(otp),
-                     messaging_service_sid='MG467b0e0b71a08e19d41864d7ae1fc533',
+                     from_=settings.TWILIO_PHONE_NUMBER,
                      to=contact['Phone_number']
                  )
             message_dict = client.messages(message.sid).fetch()

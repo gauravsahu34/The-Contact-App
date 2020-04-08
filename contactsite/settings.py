@@ -17,9 +17,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Twilio app authentication constants
-TWILIO_ACCOUNT_SID = #####Place your Twilio account sid
-TWILIO_AUTH_TOKEN = #####Place your auth Token
-TWILIO_PHONE_NUMBER= ####Place your phone number
+TWILIO_ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']#####Place your Twilio account sid
+TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']#####Place your auth Token
+TWILIO_PHONE_NUMBER= os.environ['TWILIO_PHONE_NUMBER']####Place your phone number
 
 
 # Quick-start development settings - unsuitable for production
