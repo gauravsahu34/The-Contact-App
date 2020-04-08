@@ -9,7 +9,8 @@ from .models import Message
 from django.utils import timezone
 from django.contrib import messages
 # Create your views here.
-
+#list of verified numbers
+verified_list = ['+917734848630',  '+918619452571', '+919810153260']
 text_message = 'Hi, Your Otp is:'
 def about(request):
     return render(request, 'about.html', {})
@@ -59,10 +60,10 @@ def send_otp(request, id):
     #cid is the contact id of a contact to whom message is to be sent
     cid = sent_message.contact_id
     #a send function will be called with the OTP associated with a message object
-    message = send(cid, sent_message.OTP)
+    message_status = send(cid, sent_message.OTP)
     #Check Weather the message has bee sucessfully sent or not
-    if (message.status == "failed"):
-        messages.error(request, "Message is not sent successfully!")
+    if (message_status == "failed"):
+        messages.error(request, "Message is not sent successfully because it is not verified!")
         return redirect(reverse('contacts:messages_list'))
     #we will now turn the sent flag for that sent_message to be true
     messages.success(request,"The message has been sent successfully!")
@@ -83,6 +84,8 @@ def send(id, otp):
         contact_list = json.load(f)
     for contact in contact_list:
         if (contact['id'] == id):
+            if (contact['Phone_number'] not in verified_list):
+                return "failed"
             message = client.messages \
                 .create(
                      body=text_message + " " + str(otp),

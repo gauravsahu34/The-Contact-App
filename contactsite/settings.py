@@ -19,7 +19,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Twilio app authentication constants
 TWILIO_ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']#####Place your Twilio account sid
 TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']#####Place your auth Token
-TWILIO_PHONE_NUMBER= os.environ['TWILIO_PHONE_NUMBER']####Place your phone number
+TWILIO_PHONE_NUMBER = os.environ['TWILIO_PHONE_NUMBER']####Place your phone number
 
 
 # Quick-start development settings - unsuitable for production
@@ -131,6 +131,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
