@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f#wk_4i4!po1=6-1@6jexxq5lyh)bw
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['morning-fjord-25020.herokuapp.com']
+ALLOWED_HOSTS = ['morning-fjord-25020.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
