@@ -26,12 +26,13 @@ TWILIO_PHONE_NUMBER = os.environ['TWILIO_PHONE_NUMBER']####Place your phone numb
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f#wk_4i4!po1=6-1@6jexxq5lyh)bw9qv$oz2$*&8(w@a=w0)-'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f#wk_4i4!po1=6-1@6jexxq5lyh)bw9qv$oz2$*&8(w@a=w0)-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['morning-fjord-25020.herokuapp.com']
 
 
 # Application definition
