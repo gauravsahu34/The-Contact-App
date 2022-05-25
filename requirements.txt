@@ -10,7 +10,7 @@ gunicorn==20.0.4
 psycopg2-binary==2.7.7
 idna==2.9
 phonenumbers==8.12.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 pytz==2019.3
 requests==2.23.0
 six==1.14.0
